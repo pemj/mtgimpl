@@ -1,6 +1,7 @@
 So, we have game state.
 
 This consists of:
+
      INFO
 active player
 active turn
@@ -17,14 +18,18 @@ hand
 The Stack
 mana pool
 	OBJECTS
+cards
 spells
 permanents
 static effects
 ability triggers
+choices/responses (we need optional selections, mandatory selections, random selections, all from arbitrary sources, with constraints on what may be selected).
+
 
 	Game: A list of players, 
 	Turn: A list of phases, an index into that list, and an active player.
-	Phase: A list of steps, an index into that list, a stack of actions,
+	Phase: A list of steps, an index into that list,
+    Step: A stack of activated abilities, triggered abilities, and/or spells (each of which may target things in the stack, or somewhere else, based on constraints for those effects)
 	       a series of constraints on what actions can be placed on the stack (who has priority, etc)
 untap,
 upkeep,
@@ -37,15 +42,20 @@ end step (discard to hand size, cleanup damage)
 
 Card: name, type, subtype, cost, constraints, color, color identity, text, owner, type, subtype, location
 
-      Spell: Child of card.
-      	      original/copy, (ordered list of targets), controller, owner, 
+Spell:       Child of card.
+             original/copy, (ordered list of targets), controller, effects?
 
-Permanents: Card, name, cost, color, owner, controller, location, type, subtype, time-counters, fading counters, static abilities, activated abilities, triggered abilities
-	    creature: Child of Permanent,
-	    	      power, toughness, +1/+1 counters, -1/-1 counters,  
+Permanents:  Child of Card.
+             controller, time-counters, fading counters, static abilities, activated abilities, triggered abilities, tap-status, ordered list of targets
+            
+Creature:    Child of Permanent,
+	         power, toughness, +1/+1 counters, -1/-1 counters, (blockers, attackers, damage?  Could g
+          
+Land:        Child of Permanent,
+
+Enchantment: Child of Permanent,
+
+Artifact:    Child of Permanent,
 	    
 
 
-Blocking
-attacking
-random choice among options.
