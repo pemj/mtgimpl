@@ -1,0 +1,2 @@
+# mtgimpl
+MtG base rules
