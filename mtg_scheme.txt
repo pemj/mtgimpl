@@ -42,20 +42,29 @@ end step (discard to hand size, cleanup damage)
 
 Card: name, type, subtype, cost, constraints, color, color identity, text, owner, type, subtype, location
 
-Spell:       Child of card.
-             original/copy, (ordered list of targets), controller, effects?
+Spell:        Child of Card.
+              original/copy, (ordered list of targets), controller, effects?
 
-Permanents:  Child of Card.
-             controller, time-counters, fading counters, static abilities, activated abilities, triggered abilities, tap-status, ordered list of targets
+Permanents:   Child of Card.
+              controller, time-counters, fading counters, static abilities, activated abilities, triggered abilities, tap-status, ordered list of targets
             
-Creature:    Child of Permanent,
-	         power, toughness, +1/+1 counters, -1/-1 counters, (blockers, attackers, damage?  Could g
+Creature:     Child of Permanent,
+	          power, toughness, +1/+1 counters, -1/-1 counters, damage, summoning sickness, (blockers, attackers?  Could go here, or be kept track of in relevent combat steps)
           
-Land:        Child of Permanent,
+Land:         Child of Permanent,
 
-Enchantment: Child of Permanent,
+Enchantment:  Child of Permanent,
 
-Artifact:    Child of Permanent,
+Artifact:     Child of Permanent,
+
+Planeswalker: Child of Permanent,
 	    
+
+
+Issues to keep in mind:
+
+Technically, creatures, enchantments, and artifacts are also spells, but lands are not.
+Creature tokens and other copies (i.e. mimeofactured lands/auras) will need to point to dummy objects.
+We will not be supporting cards like Falling Star (which is banned in all applicable formats anyway), because I do not feel like simulating physics.
 
 
