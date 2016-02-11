@@ -1,0 +1,51 @@
+So, we have game state.
+
+This consists of:
+     INFO
+active player
+active turn
+active phase
+active step
+	ZONES (ordered and unordered)
+battlefield
+libraries
+graveyards
+commander zone
+suspended zone
+exiled zones (linked to the effects that generate them?)
+hand
+The Stack
+mana pool
+	OBJECTS
+spells
+permanents
+static effects
+ability triggers
+
+	Game: A list of players, 
+	Turn: A list of phases, an index into that list, and an active player.
+	Phase: A list of steps, an index into that list, a stack of actions,
+	       a series of constraints on what actions can be placed on the stack (who has priority, etc)
+untap,
+upkeep,
+draw,
+precombat main phase,
+combat (begin, declare attackers, declare blockers, first strike damage, damage, end),
+postcombat main phase,
+end step (discard to hand size, cleanup damage)
+
+
+Card: name, type, subtype, cost, constraints, color, color identity, text, owner, type, subtype, location
+
+      Spell: Child of card.
+      	      original/copy, (ordered list of targets), controller, owner, 
+
+Permanents: Card, name, cost, color, owner, controller, location, type, subtype, time-counters, fading counters, static abilities, activated abilities, triggered abilities
+	    creature: Child of Permanent,
+	    	      power, toughness, +1/+1 counters, -1/-1 counters,  
+	    
+
+
+Blocking
+attacking
+random choice among options.
