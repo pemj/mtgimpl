@@ -23,20 +23,35 @@ class Player(Enum):
 	player3 = 3
 	player4 = 4
 
-#A zone should have a name and some cards.
+#A zone should have a name and some items (cards, tokens, permanents, etc.
 class Zone:
+	"""A zone of play"""
 	name = ""
-	permanents = []
+	tenants = []
 
+	
 class Card:
 	"""A card"""
-	name = ""
-	typ = []
-	subtyp = []
-	cost = [(0, Color.colorless)]
-	constraints = "" #this is gonna be rough
-	color = [Color.colorless]
-	color_identity = [Color.colorless]
-	text = ""
-	owner = Player.player1
-	location = Zone
+	def __init__(self, name, types, subtypes, cost, constraints, color, color_identity, text owner, zone):
+		self.name = ""
+		self.typ = types
+		self.subtyp = subtypes
+		self.cost = cost
+		self.constraints = constraints
+		self.color = color
+		self.color_identity = color_identity
+		self.text = text
+		self.owner = owner
+		self.location = zone
+
+
+class Spell(Card):
+
+
+class Permanent(Card):
+
+class Land(Permanent):
+
+class Enchantment(Permanent):
+
+class Artifact(Permanent):
