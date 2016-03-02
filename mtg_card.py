@@ -1,4 +1,5 @@
 from enum import Enum
+
 class Typ(Enum):
 	instant = 1
 	sorcery = 2
@@ -26,8 +27,13 @@ class Player(Enum):
 #A zone should have a name and some items (cards, tokens, permanents, etc.
 class Zone:
 	"""A zone of play"""
-	name = ""
-	tenants = []
+	def __init(self, name):
+		name = name
+		tenants = []
+
+	def add(self, item):
+		self.tenants.append(item)
+		item.zone = self
 
 	
 class Card:
