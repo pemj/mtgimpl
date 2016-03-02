@@ -50,8 +50,7 @@ class Spell(Card):
 
 class Permanent(Card):
 
-class Land(Permanent):
 
-class Enchantment(Permanent):
+class Creature(Permanent):
 
-class Artifact(Permanent):
+#The other types will be handled with the self.typ variable
