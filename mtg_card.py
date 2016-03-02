@@ -18,11 +18,45 @@ class Color(Enum):
 	black = 5
 	colorless = 6
 
-class Player(Enum):
-	player1 = 1
-	player2 = 2
-	player3 = 3
-	player4 = 4
+class Phase(Enum):
+	untap = 0
+	upkeep = 1
+	draw = 2
+	precombat_main = 3
+	combat = 4
+	postcombat_main = 5
+	end = 6
+
+class GameType(Enum):
+	modern = 0
+	commander = 1
+	standard = 2
+	pauper = 3
+	vintage = 4
+	two_headed_giant = 5 #this one may have to wait
+	
+
+class Board:
+	def __init__(self, players, gametype):
+		self.players = players
+		self.gametype = gametype
+		self.stack = []
+		self.turn = 1
+		self.phase = Phase.untap
+		
+
+class Player:
+	"""A player"""
+	def __init__(self, board, name, hand, library, graveyard, commander=""): # fill this with a default card?  make optional when I remember this
+		self.name = name
+		self.poison_counters = 0
+		if board.gametype == GameType.commander:
+			self.commandzone = commander
+		self.hand = hand
+		self.library = library
+		self.graveyard = graveyard
+		
+		
 
 #A zone should have a name and some items (cards, tokens, permanents, etc.
 class Zone:
