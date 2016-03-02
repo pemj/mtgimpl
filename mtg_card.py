@@ -44,13 +44,48 @@ class Card:
 		self.owner = owner
 		self.location = zone
 
+		def makePermanent(self, controller, time_counters, fading_counters,
+						  static_abilities, activated_abilities,
+						  triggered_abilities, tap_status, targets,
+						  power, toughness, pt_counters, damage, summoning_sickness):
+			return Permanent(self, controller, time_counters, fading_counters,
+							 static_abilities, activated_abilities,
+							 triggered_abilities, tap_status, targets,
+							 power, toughness, pt_counters, damage, summoning_sickness)
+
 
 class Spell(Card):
 
 
 class Permanent(Card):
+	"""A card"""
+	def __init__(self, card, controller, time_counters, fading_counters,
+				 static_abilities, activated_abilities,
+				 triggered_abilities, tap_status, targets,
+				 power, toughness, pt_counters, damage,
+				 summoning_sickness):
+		super(Permanent, self).__init__(card.name, card.types,
+										card.subtypes, card.cost,
+										card.constraints, card.color,
+										card.color_identity,
+										card.text owner, card.zone)
+		self.controller = controller
+		self.time_counters = time_counters
+		self.fading_counters = fading counters 
+		self.static_abilities = static_abilities
+		self.activated_abilities = activated_abilities
+		self.triggered_abilities = triggered_abilities
+		self.tap_status = tap_status
+		self.targets = targets
+		self.power = power
+		self.toughness = toughness
+		self.pt_counters = pt_counters
+		self.damage = damage
+		self.summoning_sickness = summoning_sickness
+		
+	
 
 
-class Creature(Permanent):
 
-#The other types will be handled with the self.typ variable
+#ppython has multiple inheritance, but we'd have to redefine permanents every time they change state, and that sounds like a pain.
+#we have permanents, and permanents may be of any permanent type.  they always have power and toughness, but they don't matter if it's not a creature.
