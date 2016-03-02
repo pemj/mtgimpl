@@ -42,24 +42,38 @@ class Card:
 		self.color_identity = color_identity
 		self.text = text
 		self.owner = owner
-		self.location = zone
+		self.zone = zone
 
 		def makePermanent(self, controller, time_counters, fading_counters,
-						  static_abilities, activated_abilities,
-						  triggered_abilities, tap_status, targets,
-						  power, toughness, pt_counters, damage, summoning_sickness):
-			return Permanent(self, controller, time_counters, fading_counters,
+							 static_abilities, activated_abilities,
+							 triggered_abilities, tap_status, targets,
+							 power, toughness, pt_counters, damage, summoning_sickness):
+			return Permanent(self, self.location, controller, time_counters, fading_counters,
 							 static_abilities, activated_abilities,
 							 triggered_abilities, tap_status, targets,
 							 power, toughness, pt_counters, damage, summoning_sickness)
 
+		def makeSpell(self, newZone, controller, originality, targets, effects):
+			return Spell(self, self.location, newZone, controller, originality, targets, effects)
+
 
 class Spell(Card):
-
+	"""A spell"""
+	def __init__(self, card, newZone, controller, originality, targets, effects):
+		super(Spell, self).__init__(card.name, card.types,
+										card.subtypes, card.cost,
+										card.constraints, card.color,
+										card.color_identity,
+										card.text owner, newZone)
+		self.controller = controller
+		self.originality = originality
+		self.targets = targets
+		self.effects = effects
+		
 
 class Permanent(Card):
 	"""A card"""
-	def __init__(self, card, controller, time_counters, fading_counters,
+	def __init__(self, card, newZone, controller, time_counters, fading_counters,
 				 static_abilities, activated_abilities,
 				 triggered_abilities, tap_status, targets,
 				 power, toughness, pt_counters, damage,
