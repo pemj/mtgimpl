@@ -47,6 +47,9 @@ Spell:        Child of Card.
 
 Permanents:   Child of Card.
               controller, time-counters, fading counters, static abilities, activated abilities, triggered abilities, tap-status, ordered list of targets
+	      
+
+Permanents may have multiple types, so we're going to want to probably implement creatures as their own class, but keep most other permanent things relegated to the type info.
             
 Creature:     Child of Permanent,
 	          power, toughness, +1/+1 counters, -1/-1 counters, damage, summoning sickness, (blockers, attackers?  Could go here, or be kept track of in relevent combat steps)
@@ -62,6 +65,8 @@ Planeswalker: Child of Permanent,
 
 
 Issues to keep in mind:
+
+Spells and permanents (And planeswalkers) will need to know about the board state and owner/controller.
 
 Technically, creatures, enchantments, and artifacts are also spells, but lands are not.
 Creature tokens and other copies (i.e. mimeofactured lands/auras) will need to point to dummy objects.
