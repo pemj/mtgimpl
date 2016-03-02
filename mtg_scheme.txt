@@ -40,7 +40,7 @@ postcombat main phase,
 end step (discard to hand size, cleanup damage)
 
 
-Card: name, type, subtype, cost, constraints, color, color identity, text, owner, type, subtype, location
+Card: name, type, subtype, cost, constraints, color, color identity, text, owner, location
 
 Spell:        Child of Card.
               original/copy, (ordered list of targets), controller, effects?
