@@ -2,18 +2,18 @@ So, we have game state.
 
 This consists of:
 
-     INFO
+     INFO     (enums)
 active player
 active turn
 active phase
 active step
-	ZONES (ordered and unordered)
+	ZONES (ordered and unordered) (lists for consistency, even if we don't care about order)
 battlefield
 libraries
 graveyards
 commander zone
 suspended zone
-exiled zones (linked to the effects that generate them?)
+exiled zones (linked to the effects that generate them?  at least implicitly)
 hand
 The Stack
 mana pool
