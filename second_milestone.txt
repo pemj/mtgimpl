@@ -1,0 +1,32 @@
+Peter McKay
+2016-03-02
+
+I didn't make quite as much progress as I'd have hoped for this
+milestone, though I'm not far off.  I'm about in range of what level
+of functionality I had in mind for this milestone, but I have not yet
+made as much progress on the more theoretical outline behind the
+functionality I haven't yet implemented as I would have hoped.  When the
+term started, I did not yet know that I'd be moving apartments last
+week, and I might have bit off a little more than I can chew
+comfortably.  In theory, I shouldn't have much trouble with making the
+rest of the progress towards the level of functionality I had in mind.
+
+In practice, I've eaten through some of the flexion I built into my
+schedule, so any big problems that arise might cause a reduction in
+available function.  I'm working on keeping it pretty general thus
+far, in the interest of avoiding problems that will bite me in the ass
+later on.  The game has a lot of rules, and many cards that create a
+few annoying exceptions to those rules, so, lots of arraylists.  Python
+was a pretty good choice, because it lets me stub out functionality
+and add it back in without too much fuss.
+
+I had originally planned for the types of cards to be closely mirrored
+by the classes representing those cards, but based on the multiple
+combinations of types possible, and the turn-by-turn malleability of
+those types, I've decided to decouple those two things.  Instead, cards
+and such objects have type annotations that reflect their current types,
+subtypes, and supertypes.
+
+
+
+https://github.com/pemj/mtgimpl
