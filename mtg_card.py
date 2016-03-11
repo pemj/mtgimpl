@@ -1,3 +1,4 @@
+from helpers import *
 from enum import Enum
 
 class SuperTyp(Enum):
@@ -153,8 +154,6 @@ class Permanent(Card):
 		self.pt_counters = pt_counters
 		self.damage = 0
 		self.summoning_sickness = summoning_sickness
-		
-	
 
 
 
