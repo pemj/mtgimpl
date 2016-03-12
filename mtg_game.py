@@ -1,6 +1,6 @@
 from mtg_card import *
 
-def runGame(p1, p2):
+def makeBoard(p1, p2):
 	board = Board("commander")
 	azami = Card("Azami: Lady of Scrolls", [SuperTyp.legend], [Typ.creature],
 				 ["Wizard", "Human"], [Color.colorless, Color.colorless,

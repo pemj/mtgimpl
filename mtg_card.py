@@ -1,4 +1,4 @@
-from helpers import *
+from mtg_helpers import *
 from enum import Enum
 
 class SuperTyp(Enum):
@@ -148,7 +148,7 @@ class Permanent(Card):
 		self.triggered_abilities = triggered_abilities
 		self.tap_status = tap_status
 		self.targets = targets
-		
+
 		self.power = power
 		self.toughness = toughness
 		self.pt_counters = pt_counters
