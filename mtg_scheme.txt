@@ -7,7 +7,8 @@ active player
 active turn
 active phase
 active step
-	ZONES (ordered and unordered) (lists for consistency, even if we don't care about order)
+	ZONES (ordered and unordered) (lists for consistency,
+	      even if we don't care about order)
 battlefield
 libraries
 graveyards
@@ -23,14 +24,19 @@ spells
 permanents
 static effects
 ability triggers
-choices/responses (we need optional selections, mandatory selections, random selections, all from arbitrary sources, with constraints on what may be selected).
+choices/responses (we need optional selections, mandatory selections,
+		  random selections, all from arbitrary sources, with
+		  constraints on what may be selected).
 
 
 	Game: A list of players, 
 	Turn: A list of phases, an index into that list, and an active player.
 	Phase: A list of steps, an index into that list,
-    Step: A stack of activated abilities, triggered abilities, and/or spells (each of which may target things in the stack, or somewhere else, based on constraints for those effects)
-	       a series of constraints on what actions can be placed on the stack (who has priority, etc)
+    Step: A stack of activated abilities, triggered abilities,
+    	  and/or spells (each of which may target things in the stack,
+	  or somewhere else, based on constraints for those effects)
+	       a series of constraints on what actions can be placed on
+	       the stack (who has priority, etc)
 untap,
 upkeep,
 draw,
@@ -46,13 +52,17 @@ Spell:        Child of Card.
               original/copy, (ordered list of targets), controller, effects?
 
 Permanents:   Child of Card.
-              controller, time-counters, fading counters, static abilities, activated abilities, triggered abilities, tap-status, ordered list of targets
+              controller, time-counters, fading counters, static abilities,
+	      activated abilities, triggered abilities, tap-status, ordered list of targets
 	      
 
-Permanents may have multiple types, so we're going to want to probably implement creatures as their own class, but keep most other permanent things relegated to the type info.
+Permanents may have multiple types, so we're going to want to probably implement creatures as
+their own class, but keep most other permanent things relegated to the type info.
             
 Creature:     Child of Permanent,
-	          power, toughness, +1/+1 counters, -1/-1 counters, damage, summoning sickness, (blockers, attackers?  Could go here, or be kept track of in relevent combat steps)
+	          power, toughness, +1/+1 counters, -1/-1 counters, damage,
+		  summoning sickness, (blockers, attackers?  Could go here, or
+		  be kept track of in relevent combat steps)
           
 Land:         Child of Permanent,
 
@@ -70,6 +80,7 @@ Spells and permanents (And planeswalkers) will need to know about the board stat
 
 Technically, creatures, enchantments, and artifacts are also spells, but lands are not.
 Creature tokens and other copies (i.e. mimeofactured lands/auras) will need to point to dummy objects.
-We will not be supporting cards like Falling Star (which is banned in all applicable formats anyway), because I do not feel like simulating physics.
+We will not be supporting cards like Falling Star (which is banned in all applicable formats anyway),
+because I do not feel like simulating physics.
 
 

@@ -1,0 +1,39 @@
+Peter McKay
+2016-03-11
+
+As I was mentioning in the last few progress reports, I got somewhat
+sidelined by life, as it were.  The end of the term snuck up on me a
+bit, and I ended up finding myself employed, and having to deal with
+the vagaries of the graduate school with regard to handling my somewhat
+sudden and unexpectedly imminent need to not be enrolled in any classes
+as of next term.  On the upside, hey, it looks like your career class
+worked, I'm about to have a job!
+
+But I'm also a bit wrecked by this final term, and haven't had the time
+or health to get around to putting as much time into this project as I'd
+have liked.  Also, the more time I spend poking at the implementation,
+the more I'm convinced I really should have tried to make use of
+something more purely functional: I'm only a bit of the way into an
+actual implementation, and the program flow is getting a little hard to
+follow.  I was planning on working on a parser for MTG card text using
+haskell and the happy/alex parser/lexer stack, and since they play
+rather nicely with being reduced to haskell code, I think it might make
+a lot more sense to try and represent game state as a monad rather than
+a somewhat complicated series of global and local variables shared
+between a number of objects.
+
+Hopefully, not having homework means I'll be in the market for some
+fun little side projects, and I'm always happy for an excuse to learn
+more haskell.  Overall, it would have been nice if I'd been able to get
+my project a little further along, but I am pretty happy with how much
+I've learned from just trying to work the problem into little bite-sized
+chunks.
+
+I think, with what I have now, I could take a stab at implementing a
+fairly simple match of Magic.  I have at least one deck that I could
+see working out without too much trouble, but, I think the code
+necessary to implement some of the more convoluted strategies possible
+would have gotten out of hand pretty fast, in terms of readability and
+ease of understanding.
+
+https://github.com/pemj/mtgimpl
